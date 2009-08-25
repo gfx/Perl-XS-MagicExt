@@ -46,5 +46,8 @@ MagicExt\.c$
 \.o(?:bj)?$
 \.bs$
 
+t/MGX\.c$
+t/MGX\.(?:so|dll)$
+
 XS-MagicExt-
 ppport\.h$
