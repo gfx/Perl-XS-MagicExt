@@ -3,6 +3,8 @@
 use strict;
 use Test::More;
 
+use XS::MagicExt;
+
 use ExtUtils::ParseXS;
 use ExtUtils::CBuilder;
 use DynaLoader;

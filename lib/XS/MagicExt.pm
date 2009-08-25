@@ -3,7 +3,7 @@ package XS::MagicExt;
 use 5.008_001;
 use strict;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use DynaLoader;
 local *dl_load_flags = sub{ 0x01 };
@@ -18,7 +18,7 @@ XS::MagicExt - Provides PERL_MAGIC_ext manipulators for XS modules
 
 =head1 VERSION
 
-This document describes XS::MagicExt version 0.01.
+This document describes XS::MagicExt version 0.02.
 
 =head1 SYNOPSIS
 
@@ -57,27 +57,27 @@ This document describes XS::MagicExt version 0.01.
 XS::MagicExt provides MAGIC manipulators for XS modules.
 
 MAGIC manipulators are an interface to C<sv_magicext()>, C<mg_find()>, and
-C<sv_unmagic()>, which distingwish magic identities from others' MAGICs by C<MGVTBL>.
+C<sv_unmagic()>, which distinguish magic identities from others' MAGICs by C<MGVTBL>.
 
 =head1 FUNCTIONS
 
 =head2 MAGIC* mgx_attach_with_ptr(SV* sv, MGVTBL* id, SV* obj, void* ptr, I32 len)
 
-Attachs a MAGIC identified by I<id> to I<sv> with I<obj> and I<ptr> / I<len>.
+Attaches a MAGIC identified by I<id> to I<sv> with I<obj> and I<ptr> / I<len>.
 
 Similar to C<sv_magicext(sv, obj, PERL_MAGIC_ext, id, ptr, len)>, but does not increase
 the refcount of I<obj>.
 
 =head2 MAGIC* mgx_attach_with_sv(SV* sv, MGVTBL* id, SV* obj, SV* data)
 
-Attachs a MAGIC identified by I<id> to I<sv> with I<obj> and I<data>,
+Attaches a MAGIC identified by I<id> to I<sv> with I<obj> and I<data>,
 not increasing the refcount of I<data>.
 
 The same as C<mgx_attach_with_ptr(sv, id, obj, (SV*)ptr, HEf_SVKEY)>.
 
 =head2 MAGIC* mgx_attach(SV* sv, MGVTBL* id, SV* obj)
 
-Attachs a MAGIC identified by I<id> to I<sv> with I<obj>.
+Attaches a MAGIC identified by I<id> to I<sv> with I<obj>.
 
 The same as C<mgx_attach_with_ptr(sv, id, obj, NULL, 0)>.
 

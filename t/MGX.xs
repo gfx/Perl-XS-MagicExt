@@ -5,7 +5,6 @@
 
 #include "ppport.h"
 
-#define  XS_MAGIC_EXT_DECL STATIC /* for testing */
 #include "magic_ext.h"
 
 #define FAIL warn("FAIL at %s line %d.\n", __FILE__, __LINE__)
