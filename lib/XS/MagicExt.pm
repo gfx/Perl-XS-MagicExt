@@ -3,7 +3,7 @@ package XS::MagicExt;
 use 5.008_001;
 use strict;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use DynaLoader;
 local *dl_load_flags = sub{ 0x01 };
@@ -18,7 +18,7 @@ XS::MagicExt - Provides PERL_MAGIC_ext manipulators for XS modules
 
 =head1 VERSION
 
-This document describes XS::MagicExt version 0.02.
+This document describes XS::MagicExt version 0.03.
 
 =head1 SYNOPSIS
 
