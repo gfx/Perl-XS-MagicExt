@@ -1,5 +1,8 @@
 Revision history for Perl extension XS::MagicExt
 
+0.04 Fri Sep  4 09:38:34 2009
+	- rewrite tests for Win32 and Cygwin
+
 0.03 Wed Sep  2 18:01:20 2009
 	- update Module::Install::XSUtil to 0.13
 
