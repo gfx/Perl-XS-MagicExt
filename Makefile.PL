@@ -10,7 +10,6 @@ cc_warnings;
 install_headers 'magic_ext.h';
 
 test_requires 'Test::More' => 0.88;
-test_requires 'ExtUtils::CBuilder';
 
 tests 't/*.t';
 author_tests 'xt';
@@ -22,7 +21,6 @@ clean_files qw(
 	*.gcda *.gcno *.gcov
 	nytprof *.out
 	cover_db
-	t/MGX.c t/MGX.o t/MGX.obj t/MGX.dll
 );
 
 WriteAll check_nmake => 0;

@@ -3,32 +3,27 @@
 use strict;
 use Test::More;
 
-use XS::MagicExt;
+use FindBin qw($Bin);
+use File::Spec;
+use Config;
 
-use ExtUtils::ParseXS;
-use ExtUtils::CBuilder;
-use DynaLoader;
+my $dist_dir = File::Spec->join($Bin, 'test');
+chdir $dist_dir or die "Cannot chdir to $dist_dir: $!";
 
-chdir 't';
+my $make = $Config{make};
 
-my $xs = 'MGX.xs';
-my $c  = 'MGX.c';
+my $out;
 
-ExtUtils::ParseXS::process_file(
-    filename => $xs,
-    output   => $c,
-);
+ok($out = `$^X Makefile.PL`, "$^X Makefile.PL");
+is $?, 0, '... success' or diag $out;
 
-my $cbuilder = ExtUtils::CBuilder->new();
+ok($out = `$make`, $make);
+is $?, 0, '... success' or diag $out;
 
-my $obj = $cbuilder->compile(source => $c, include_dirs => ['..']);
-my $lib = $cbuilder->link(objects => $obj, module_name => 'MGX');
+ok($out = `$make test`, "$make test");
+is $?, 0, '... success' or diag $out;
 
-ok eval{
-    package MGX;
-    DynaLoader::bootstrap_inherit(__PACKAGE__);
-}, 'bootstrap';
-
-is MGX::do_test(), 22;
+ok($out = `$make realclean`, "$make realclean");
+is $?, 0, '... success' or diag $out;
 
 done_testing;
