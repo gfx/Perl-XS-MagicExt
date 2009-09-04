@@ -4,6 +4,7 @@
 *.o
 *.obj
 *.bs
+*.bak
 Makefile*
 !Makefile.PL
 *blib
@@ -11,3 +12,4 @@ META.yml
 inc/
 MANIFEST
 ppport.h
+MagicExt.c
