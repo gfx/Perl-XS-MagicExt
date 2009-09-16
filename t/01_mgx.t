@@ -23,7 +23,7 @@ is $?, 0, '... success' or diag $out;
 ok($out = `$make test`, "$make test");
 is $?, 0, '... success' or diag $out;
 
-ok($out = `$make realclean`, "$make realclean");
+ok($out = `$make clean`, "$make clean");
 is $?, 0, '... success' or diag $out;
 
 done_testing;
